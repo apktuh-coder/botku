@@ -305,13 +305,23 @@ def get_source_label(full_release="no"):
 def build_item_embed(item, description="✨ Item Overview", color=discord.Color.gold(), full_release="no"):
     embed = discord.Embed(
         title=f"📦 {item.get('name', '-')}",
-        description=description,
         color=color,
     )
-    embed.add_field(name="🧩 Type", value=f"*{item.get('type', '-')}*", inline=True)
-    embed.add_field(name="🏆 Tier", value=f"*{format_tier(item.get('tier', '-'))}*", inline=True)
-    embed.add_field(name="🌍 Country", value=clean_country(item.get("country", "-")), inline=True)
-    embed.add_field(name=get_source_label(full_release), value=get_source_display(item, full_release), inline=False)
+
+    embed.description = (
+        "```
+"
+        f"Type      : {item.get('type', '-')}
+"
+        f"Tier      : {format_tier(item.get('tier', '-'))}
+"
+        f"Country   : {clean_country(item.get('country', '-'))}
+"
+        f"Obtain    : {get_source_display(item, full_release)}"
+        "
+```"
+    )
+
     embed.set_footer(text="Can't find item? Click Report Item below")
     return embed
 

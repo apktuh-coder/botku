@@ -309,12 +309,9 @@ def build_item_embed(item, description="✨ Item Overview", color=discord.Color.
     )
 
     embed.description = (
-        f"🧩 Type      {item.get('type', '-')}
-"
-        f"🏆 Tier      {format_tier(item.get('tier', '-'))}
-"
-        f"🌍 Country   {clean_country(item.get('country', '-'))}
-"
+        f"🧩 Type      {item.get('type', '-')}\n"
+        f"🏆 Tier      {format_tier(item.get('tier', '-'))}\n"
+        f"🌍 Country   {clean_country(item.get('country', '-'))}\n"
         f"📥 Obtain    {get_source_display(item, full_release)}"
     )
 

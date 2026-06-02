@@ -308,19 +308,12 @@ def build_item_embed(item, description="✨ Item Overview", color=discord.Color.
         color=color,
     )
 
-    embed.description = (
-        "```
-"
-        f"Type      : {item.get('type', '-')}
-"
-        f"Tier      : {format_tier(item.get('tier', '-'))}
-"
-        f"Country   : {clean_country(item.get('country', '-'))}
-"
-        f"Obtain    : {get_source_display(item, full_release)}"
-        "
-```"
-    )
+    embed.description = f"""```yaml
+Type      : {item.get('type', '-')}
+Tier      : {format_tier(item.get('tier', '-'))}
+Country   : {clean_country(item.get('country', '-'))}
+Obtain    : {get_source_display(item, full_release)}
+```"""
 
     embed.set_footer(text="Can't find item? Click Report Item below")
     return embed
